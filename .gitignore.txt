@@ -1,3 +1,0 @@
-
-Url-Shortener-Api/Url_shortener/__pycache__
-Url-Shortener-Api/Url_shortener/urlshortener
