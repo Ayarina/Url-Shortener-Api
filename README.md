@@ -1,2 +1,2 @@
-# Url-Shortener-Api
-1er Hito 
+# Decapitador de Urls
+Hito Primero de Ingeniería Web. Decapita urls, como su hermoso nombre indica.
