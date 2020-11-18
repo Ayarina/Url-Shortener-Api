@@ -1,3 +1,3 @@
 
-/home/aya/coreacademy_hitos/Url-Shortener-Api/Url_shortener/__pycache__
-/home/aya/coreacademy_hitos/Url-Shortener-Api/Url_shortener/urlshortener
+Url-Shortener-Api/Url_shortener/__pycache__
+Url-Shortener-Api/Url_shortener/urlshortener
