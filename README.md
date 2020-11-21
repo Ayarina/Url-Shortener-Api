@@ -9,7 +9,7 @@ To run the app, we will use `uvicorn main:app --reload` (main refers to the file
 
 By adding `/docs` at the end of the URL, the Swagger interface will show up. The Swagger interface (wich is very easy and intuitive to use) let us try all the functions http methods available in the API.
 
-This API consists in a pattern of `POST` and `GET` that gets stored in a temporary database, that dies when the app stops. The function of the temporary database is to not have more than one URL assignated to the same custom name, or more than one custom name asiggnated to the same URL. 
+This API consists in a pattern of `POST` and `GET` of URLs that gets stored in a temporary database, and dies when the app stops. The function of the temporary database is to not have more than one URL assignated to the same custom name, or more than one custom name asiggnated to the same URL. 
 
 If a non-temporary database is added, it will be more efficient. However, this will not be added to this API, only to mantain his didactic function.
 
