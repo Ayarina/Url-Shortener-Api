@@ -55,12 +55,3 @@ async def redirect(short: str):
         if short in takenc[i]:
             return RedirectResponse(takenu[i])
     return {"message": "URL not defined in the database"}
-
-#def random_url(url: str):
-#    letters = string.ascii_letters
-#    length = 6
-#    result_rand = ''.join(random.choice(letters) for i in range(length))
-#    result = 'https://www.UrlDec.com/'.join(result_rand)
-#    return result
-
-#####This isn't tested yet
