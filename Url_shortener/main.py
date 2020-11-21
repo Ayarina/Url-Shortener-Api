@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Optional
 
-import string
-import random
+from starlette.responses import RedirectResponse
+
 
 app = FastAPI(
     title="Decapitador de Urls",
@@ -11,10 +11,13 @@ app = FastAPI(
     version="69.1",
 )
 
-dic = {}
+db = []
+takenu = []
+takenc = []
 
 class Link(BaseModel):
     url: str
+    custom_name: str
 
 @app.get("/")
 async def root():
@@ -22,23 +25,42 @@ async def root():
 
 @app.get("/url/")
 async def list_url():
-    return dic
-    
-@app.post("/url/")
+    return db
+
+@app.post("/")
 async def shorten_url(item: Link):
-    if item.url in dic:
-        return {"url" : item.url, "shortened_url" : dic[item.url]}
-    else:
-        shortened_url = random_url(item.url)
-        dic[item.url] = shortened_url
-        #dic.append(item)
-        return {"url" : item.url, "shortened_url" : shortened_url}    
+    url = item.url
+    custom = item.custom_name
+    if {url: custom} in db:
+        for i in range(len(db)):
+            if {url: custom} == db[i]:
+                return {"url": db[i]}
+    elif custom in takenc:
+        for i in range(len(db)):
+            if custom in takenc[i]:
+                return {"message": "This custom name is already taken, try again.", "url": db[i]}
+    elif url in takenu:
+        for i in range(len(db)):
+            if url in takenu[i]:
+                return {"message": "This url has already a shortened url", "url": db[i]}
+    else: 
+        db.append({url: custom})
+        takenc.append(custom)
+        takenu.append(url)
+        return {"url" : url, "short": custom}
 
+@app.get("/{short}")
+async def redirect(short: str):
+    for i in range(len(db)):
+        if short in takenc[i]:
+            return RedirectResponse(takenu[i])
+    return {"message": "URL not defined in the database"}
 
-def random_url(url: str):
-    letters = string.ascii_letters
-    length = 6
-    result = 'https://www.UrlDecapitator.com/'.join(random.choice(letters) for i in range(length))
-    return result
+#def random_url(url: str):
+#    letters = string.ascii_letters
+#    length = 6
+#    result_rand = ''.join(random.choice(letters) for i in range(length))
+#    result = 'https://www.UrlDec.com/'.join(result_rand)
+#    return result
 
 #####This isn't tested yet
