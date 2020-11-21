@@ -6,7 +6,7 @@ from starlette.responses import RedirectResponse
 
 
 app = FastAPI(
-    title="Decapitador de Urls",
+    title="URL Beheader",
     description="Decapita urls",
     version="69.1",
 )
