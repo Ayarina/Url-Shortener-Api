@@ -1,5 +1,5 @@
 # URL Beheader
-Hito 1 de Ingeniería Web. (No voy a poner milestone porque me suena a piedra del Minecraft)
+Hito 1 + 2 de Ingeniería Web. (No voy a poner milestone porque me suena a piedra del Minecraft)
 
 ## Requierements
   * An interpreter/shell/terminal of any distribution that supports python (Pycharm can be also used)
